@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/youtube-logo.99c262f92d33e5faa23d.png";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+const Navbar = ({ setVisible }) => {
 	return (
 		<nav className=' bg-white shadow-lg py-1 fixed top-0 w-full z-50'>
 			<div className='flex justify-between items-center w-[85%] mx-auto'>
@@ -29,7 +30,8 @@ const Navbar = () => {
 						</Link>
 						<button
 							type='button'
-							className='font-[400] text-sm text-white bg-green px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:shadow-lg hover:shadow-green/40'>
+							className='font-[400] text-sm text-white bg-green px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:shadow-lg hover:shadow-green/40'
+							onClick={() => setVisible(true)}>
 							Add playlist
 						</button>
 					</div>
@@ -37,6 +39,10 @@ const Navbar = () => {
 			</div>
 		</nav>
 	);
+};
+
+Navbar.propTypes = {
+	setVisible: PropTypes.func.isRequired,
 };
 
 export default Navbar;

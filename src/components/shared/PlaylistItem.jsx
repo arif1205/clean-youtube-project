@@ -14,7 +14,7 @@ const PlaylistItem = ({ title, imgurl }) => {
 
 	return (
 		<div className='basis-[25%] px-4'>
-			<div className='h-full cursor-pointer bg-white rounded-xl shadow-lg overflow-hidden group flex flex-col'>
+			<div className='h-full cursor-pointer bg-white rounded-xl shadow-lg overflow-hidden group flex flex-col items-stretch'>
 				<div className='img-box relative h-[170px]'>
 					<LazyLoadImage
 						src={imgurl}
@@ -30,8 +30,8 @@ const PlaylistItem = ({ title, imgurl }) => {
 						<RxCross1 />
 					</div>
 				</div>
-				<div className='content-box px-4 py-4 font-medium font-poppins flex justify-between items-center'>
-					<h1 className=''>{title}</h1>
+				<div className='content-box px-4 py-4 font-medium font-poppins flex items-center gap-4 grow'>
+					<h1 className='flex-1'>{title}</h1>
 					<button
 						className={`fav-icon px-[5px] py-[5px] rounded-full text-[22px] bg-purple/30 text-purple relative overflow-hidden`}
 						onClick={() => setIsFav((prev) => !prev)}
