@@ -3,16 +3,16 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const api = createApi({
 	reducerPath: "api",
 	baseQuery: fetchBaseQuery({
-		baseUrl: "https://jsonplaceholder.typicode.com/",
+		baseUrl: import.meta.env.VITE_YOUTUBE_API_BASE_URL,
 	}),
 	endpoints: (builder) => ({
 		getPlayListById: builder.query({
-			query: (id) => `users/${id}`,
-		}),
-		getPlayListByLink: builder.query({
-			query: (link) => `${link}`,
+			query: ({ playlistID }) =>
+				`playlistItems?part=snippet&playlistId=${playlistID}&key=${
+					import.meta.env.VITE_YOUTUBE_API_KEY
+				}`,
 		}),
 	}),
 });
 
-export const { useGetPlayListByIdQuery, useGetPlayListByLinkQuery } = api;
+export const { useGetPlayListByIdQuery } = api;
